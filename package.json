@@ -1,0 +1,29 @@
+{
+  "name": "js-hearthstone-mulligan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jian13579/js-hearthstone-mulligan.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jian13579/js-hearthstone-mulligan/issues"
+  },
+  "homepage": "https://github.com/jian13579/js-hearthstone-mulligan#readme",
+  "dependencies": {
+    "deckstrings": "^2.0.0",
+    "express": "^4.16.2",
+    "socket.io": "^2.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.1"
+  }
+}
