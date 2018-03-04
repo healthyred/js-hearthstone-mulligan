@@ -1,0 +1,140 @@
+<html>
+  <head>
+    <title>Mulligan App</title>
+    <!--This is where the python code will go-->
+    <script language = "JavaScript" type= "text/javascript">
+    var deckstring;
+    var choices = new Array();
+    var first;//first
+    var second;//second
+    var opponent;
+    var image1 = document.getElementsByClassName("card1");
+    var image2 = document.getElementsByClassName("card2");
+    var image3 = document.getElementsByClassName("card3");
+    var image4 = document.getElementsByClassName("card4");
+
+    var list_one = new Array("https://cdn.rawgit.com/schmich/hearthstone-card-images/778d/pre/ice-breaker.png",
+                             "https://cdn.rawgit.com/schmich/hearthstone-card-images/af12/pre/abominable-bowman.png",
+                             "https://cdn.rawgit.com/schmich/hearthstone-card-images/af12/pre/nerubian-unraveler.png");
+
+    var list_two = new Array("https://cdn.rawgit.com/schmich/hearthstone-card-images/778d/pre/ice-breaker.png",
+                             "https://cdn.rawgit.com/schmich/hearthstone-card-images/af12/pre/abominable-bowman.png",
+                             "https://cdn.rawgit.com/schmich/hearthstone-card-images/af12/pre/nerubian-unraveler.png",
+                             "https://cdn.rawgit.com/schmich/hearthstone-card-images/62dd/pre/prince-taldaram.png")
+
+    var testpull = {"order": true,
+    "hand_url": ["https://cdn.rawgit.com/schmich/hearthstone-card-images/f5d6/rel/CFM_065.png", "https://cdn.rawgit.com/schmich/hearthstone-card-images/f5d6/rel/CS2_022.png", "https://cdn.rawgit.com/schmich/hearthstone-card-images/f5d6/rel/EX1_561.png"],
+    "opponent": "Hunter",
+    "decklist": [555, 621, 621, 39767, 41496,1004, 1087, 39715, 39767, 41878, 40297, 41153, 39841, 555, 39715, 41496, 192, 315,405, 38792, 192, 662, 912],
+    "smalldeck": ["https://cdn.rawgit.com/schmich/hearthstone-card-images/f5d6/rel/NEW1_012.png", "https://cdn.rawgit.com/schmich/hearthstone-card-images/afb4/rel/CS2_024.png", "https://cdn.rawgit.com/schmich/hearthstone-card-images/afb4/rel/UNG_020.png", "https://cdn.rawgit.com/schmich/hearthstone-card-images/f5d6/rel/CS2_029.png"],
+    "deckcode": "AAECAf0ECE3FBJAH7Ae/CIivAqG3ApbHAgvAAbsClQOrBO0ElgWjtgLXtgLpugLBwQKYxAIA", "hand_names": null}
+
+    var hand = testpull.hand_url;
+    var i;
+
+    function load(){
+      //function that sends to back end, resulting in all the information to be sent back to the client-side
+      deckstring = document.getElementById('deckcode').value;
+    }
+
+    var a;
+    var b;
+    var c;
+    var d;
+
+    function hand(array){
+      //function that takes the urls and puts them into variables a,b,c,d
+
+    }
+
+=
+
+    function update(){
+      //assuming we get passed an array of Cards
+      //and we pass the first 4 elements of the array
+      if(flip() == "first"){
+        image1.hidden = false;
+        image2.hidden = false;
+        image3.hidden = false;
+        image1.src = a;
+        image2.src = b;
+        image3.src = c;
+      }
+      else{
+        image1.hidden = false;
+        image2.hidden = false;
+        image3.hidden = false;
+        image4.hidden = false;
+        image1.src = a;
+        image2.src = b;
+        image3.src = c;
+        image4.src = d;
+      }
+    }
+
+    function mulligan(){
+      //choices contains 0, 1, 2, 3 telling which order the cards are mulliganed
+      return choices;
+    }
+
+    function flip(){
+      //coin clip for turn
+      x = (Math.floor(Math.random()*2) == 0);
+      if(x){
+        first = true;
+        second = false;
+        return "first";
+      }
+      else{
+        second = true;
+        first = false;
+        return "tails";
+      }
+    }
+
+    //function load(){
+      //document.getElementById('cardone').src = cardone;
+    //}
+    </script>
+  </head>
+  <body>
+  <form name="deckcode">
+    Deckcode: <input type="text" name="deckcode">
+  </form>
+  <button id="loaddeck" onlick="load()"> Load</button>
+
+  <img class="card1" src="" hidden>
+  <img class="card2" src="" hidden>
+  <img class="card3" src="" hidden>
+  <img class="card4" src="" hidden>
+
+  <button id="draw" onclick="update(); clicked()">Draw Cards</button>
+  <button id="confirm" onclick="">Confirm</button>
+  <!--This displays the card images-->
+  <br><br>
+  <!--<img src="nothing.jpg" id="cardone">
+  <img src="nothing.jpg" id="cardtwo">
+  <img src="nothing.jpg" id="cardthree">
+  <img src="https://cdn.rawgit.com/schmich/hearthstone-card-images/f5d6/rel/CS2_022.png" width="140" height="200" id="card1">
+  <img src="nothing.jpg" id="cardfour">-->
+  </body>
+</html>
+
+<!--
+function cardimages(array){
+  for (i = 0; i < array.length; i++) {
+    var cardi = array[i];
+    var img = document.createElement("img");
+    img.src = cardi;
+    img.width = 140;
+    img.height = 200;
+    img.id = "card" + i
+    document.body.appendChild(img);
+  }
+}
+
+function clicked(){
+  //disables the draw button after a click
+  document.getElementById("lim_clicks").disabled=true;
+}
+-->
